@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		4FD9E318BE7E236877D5486C /* Pods_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A703A5A2962ADF63A7FCB6A /* Pods_Chat.framework */; };
 		E3133EE81DC1F83300B21AB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3133EE71DC1F83300B21AB9 /* AppDelegate.swift */; };
-		E3133EEA1DC1F83300B21AB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3133EE91DC1F83300B21AB9 /* ViewController.swift */; };
 		E3133EED1DC1F83300B21AB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3133EEB1DC1F83300B21AB9 /* Main.storyboard */; };
 		E3133EEF1DC1F83300B21AB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3133EEE1DC1F83300B21AB9 /* Assets.xcassets */; };
 		E3133EF21DC1F83300B21AB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3133EF01DC1F83300B21AB9 /* LaunchScreen.storyboard */; };
+		E37EE4991DC2EBD3007EA874 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37EE4981DC2EBD3007EA874 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +21,11 @@
 		C3FDC9DD1C184E75DE8B0B28 /* Pods-Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		E3133EE41DC1F83300B21AB9 /* Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3133EE71DC1F83300B21AB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E3133EE91DC1F83300B21AB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E3133EEC1DC1F83300B21AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3133EEE1DC1F83300B21AB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3133EF11DC1F83300B21AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3133EF31DC1F83300B21AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E37EE4981DC2EBD3007EA874 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				E3133EE71DC1F83300B21AB9 /* AppDelegate.swift */,
-				E3133EE91DC1F83300B21AB9 /* ViewController.swift */,
+				E37EE4981DC2EBD3007EA874 /* LoginViewController.swift */,
 				E3133EEB1DC1F83300B21AB9 /* Main.storyboard */,
 				E3133EEE1DC1F83300B21AB9 /* Assets.xcassets */,
 				E3133EF01DC1F83300B21AB9 /* LaunchScreen.storyboard */,
@@ -211,7 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3133EEA1DC1F83300B21AB9 /* ViewController.swift in Sources */,
+				E37EE4991DC2EBD3007EA874 /* LoginViewController.swift in Sources */,
 				E3133EE81DC1F83300B21AB9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
