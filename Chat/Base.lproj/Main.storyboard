@@ -78,5 +78,79 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
+        <!--Chat-->
+        <scene sceneID="LUb-TS-JKR">
+            <objects>
+                <viewController id="fen-bZ-CRz" customClass="ChatViewController" customModule="Chat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k3T-0P-8uL"/>
+                        <viewControllerLayoutGuide type="bottom" id="NQn-0W-tBN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t80-ww-LXz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2LW-mh-1Lk">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z3k-cJ-FMZ">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tda-If-JKn">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="yji-nA-uer"/>
+                                        </constraints>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="onSend:" destination="fen-bZ-CRz" eventType="touchUpInside" id="7np-xH-ZYT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Tda-If-JKn" firstAttribute="centerY" secondItem="2LW-mh-1Lk" secondAttribute="centerY" id="8nz-wa-XEy"/>
+                                    <constraint firstItem="z3k-cJ-FMZ" firstAttribute="leading" secondItem="2LW-mh-1Lk" secondAttribute="leading" constant="8" id="KkU-cD-Xrg"/>
+                                    <constraint firstItem="Tda-If-JKn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="z3k-cJ-FMZ" secondAttribute="trailing" constant="12" id="QHI-ig-oab"/>
+                                    <constraint firstItem="z3k-cJ-FMZ" firstAttribute="centerY" secondItem="2LW-mh-1Lk" secondAttribute="centerY" id="TEK-ix-XQp"/>
+                                    <constraint firstAttribute="height" constant="46" id="UVU-eO-1cG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tda-If-JKn" secondAttribute="trailing" constant="12" id="fBA-3G-Q0y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2LW-mh-1Lk" secondAttribute="trailing" id="1YF-Lw-cKE"/>
+                            <constraint firstItem="2LW-mh-1Lk" firstAttribute="top" secondItem="k3T-0P-8uL" secondAttribute="bottom" id="FYd-9P-S3I"/>
+                            <constraint firstItem="2LW-mh-1Lk" firstAttribute="leading" secondItem="t80-ww-LXz" secondAttribute="leading" id="Jcp-jf-U2h"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat" id="CGT-6v-P3D"/>
+                    <connections>
+                        <outlet property="messageField" destination="z3k-cJ-FMZ" id="rHM-SY-QXD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xwz-Tz-f2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757.5999999999999" y="145.27736131934034"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eNA-3l-mYW">
+            <objects>
+                <navigationController storyboardIdentifier="ChatNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="EGP-cZ-jhE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zrB-Py-gAq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fen-bZ-CRz" kind="relationship" relationship="rootViewController" id="w2t-39-Ebz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RQq-oY-j77" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031.2" y="146.17691154422789"/>
+        </scene>
     </scenes>
 </document>

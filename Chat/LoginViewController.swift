@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
                 if user != nil {
                     // Do stuff after successful login.
                     print("Login success")
+                    self.presentChatViewController()
                 } else {
                     // The login failed. Check error to see why.
                     let alert = UIAlertController(title: "Login failed", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
@@ -30,7 +31,7 @@ class LoginViewController: UIViewController {
             })
         }
     }
-
+// name@gmail.com
     @IBAction func onSignupButton(_ sender: UIButton) {
         if let email = emailField.text, let password = passwordField.text {
             // var user = PFUser()
@@ -49,6 +50,7 @@ class LoginViewController: UIViewController {
                 } else {
                     // Hooray! Let them use the app now.
                     print("Signup success")
+                    self.presentChatViewController()
                 }
             })
         }
@@ -63,6 +65,13 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func presentChatViewController() {
+        let chatNVC = storyboard?.instantiateViewController(withIdentifier: "ChatNavigationController") as! UINavigationController
+        present(chatNVC, animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func onTap(_ sender: UITapGestureRecognizer) {
