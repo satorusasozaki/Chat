@@ -16,9 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         Parse.setApplicationId("DXsvTSLgsKT03gSSqy6V5KbLwVpgfEjmEsKzzQUP",
                                clientKey: "BXAzmCJhMtIVWhLVEiKIMzPCA5XI0Nt9NwvAOPVd")
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let isLoggedin = true
+        if isLoggedin {
+            let chatNVC = storyboard.instantiateViewController(withIdentifier: "ChatNavigationController") as! UINavigationController
+            window?.rootViewController = chatNVC
+        } else {
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            window?.rootViewController = loginVC
+        }
+        window?.makeKeyAndVisible()
+
         return true
     }
 
