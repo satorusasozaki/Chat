@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -117,17 +118,51 @@
                                     <constraint firstAttribute="trailing" secondItem="Tda-If-JKn" secondAttribute="trailing" constant="12" id="fBA-3G-Q0y"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vIv-g1-egD">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" id="ERa-GQ-g9Y" customClass="TextCell" customModule="Chat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ERa-GQ-g9Y" id="8r5-Kk-HmM">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r03-kq-goa">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r03-kq-goa" firstAttribute="leading" secondItem="8r5-Kk-HmM" secondAttribute="leadingMargin" id="BYQ-qQ-3DK"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="r03-kq-goa" secondAttribute="bottom" id="Bdn-7i-1sQ"/>
+                                                <constraint firstItem="r03-kq-goa" firstAttribute="top" secondItem="8r5-Kk-HmM" secondAttribute="topMargin" id="Qnd-Ff-3oe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="r03-kq-goa" secondAttribute="trailing" id="mDT-ER-dIm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="r03-kq-goa" id="ngw-Cc-46t"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2LW-mh-1Lk" secondAttribute="trailing" id="1YF-Lw-cKE"/>
                             <constraint firstItem="2LW-mh-1Lk" firstAttribute="top" secondItem="k3T-0P-8uL" secondAttribute="bottom" id="FYd-9P-S3I"/>
                             <constraint firstItem="2LW-mh-1Lk" firstAttribute="leading" secondItem="t80-ww-LXz" secondAttribute="leading" id="Jcp-jf-U2h"/>
+                            <constraint firstItem="vIv-g1-egD" firstAttribute="top" secondItem="2LW-mh-1Lk" secondAttribute="bottom" id="cW5-0f-Syx"/>
+                            <constraint firstItem="NQn-0W-tBN" firstAttribute="top" secondItem="vIv-g1-egD" secondAttribute="bottom" id="ge5-Aw-WXh"/>
+                            <constraint firstItem="vIv-g1-egD" firstAttribute="leading" secondItem="t80-ww-LXz" secondAttribute="leading" id="tzz-55-grJ"/>
+                            <constraint firstAttribute="trailing" secondItem="vIv-g1-egD" secondAttribute="trailing" id="uRB-zM-P8r"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="CGT-6v-P3D"/>
                     <connections>
                         <outlet property="messageField" destination="z3k-cJ-FMZ" id="rHM-SY-QXD"/>
+                        <outlet property="tableView" destination="vIv-g1-egD" id="xoy-im-lD7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwz-Tz-f2N" userLabel="First Responder" sceneMemberID="firstResponder"/>

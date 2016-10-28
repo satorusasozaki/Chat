@@ -12,10 +12,22 @@ import Parse
 class ChatViewController: UIViewController {
 
     @IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var texts: [PFObject]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: "updateTexts", userInfo: nil, repeats: true)
     }
     @IBAction func onSend(_ sender: UIButton) {
         if let text = messageField.text {
@@ -36,5 +48,34 @@ class ChatViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+        updateTexts()
+    }
+    
+    func updateTexts() {
+        let query = PFQuery(className: "Message")
+        query.whereKeyExists("text")
+        query.findObjectsInBackground(block: {
+        (objects, error) -> Void in
+            print(objects?[0]["text"])
+            print(objects?[1]["text"])
+        })
+    }
+}
+
+
+extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let texts = texts {
+            return texts.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
+        if let texts = texts {
+            cell.messageLabel.text = texts[indexPath.row]["text"] as? String
+        }
+        return cell
     }
 }
