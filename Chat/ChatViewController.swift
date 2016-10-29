@@ -77,6 +77,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
         if let texts = texts {
             cell.messageLabel.text = texts[indexPath.row]["satoru"] as? String
+            cell.userLabel.isHidden = true
         }
         return cell
     }
