@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -19,6 +19,8 @@ class ChatViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,9 @@ class ChatViewController: UIViewController {
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateTexts), userInfo: nil, repeats: true)
         
         updateTexts()
+        
+        // Setup imagePicker
+        imagePicker.delegate = self
     }
     
     @IBAction func onSend(_ sender: UIButton) {
