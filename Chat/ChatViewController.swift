@@ -59,16 +59,12 @@ class ChatViewController: UIViewController {
         let query = PFQuery(className: "Message")
         query.whereKeyExists("satoru")
         query.order(byDescending: "createdAt")
+        query.includeKey("user")
         query.findObjectsInBackground(block: {
         (objects, error) -> Void in
             print(objects?[0]["satoru"])
             print(objects?[1]["satoru"])
             self.texts = objects
-//            do {
-//                try objects?[0].fetchIfNeeded()
-//            } catch {
-//                
-//            }
         })
     }
 }
@@ -86,27 +82,10 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
         if let texts = texts {
             cell.messageLabel.text = texts[indexPath.row]["satoru"] as? String
+
             if let user = texts[indexPath.row]["user"] as? PFUser {
                 cell.userLabel.isHidden = false
-//                if let username = user.username {
-//                    cell.userLabel.text = username
-//                }
-
-                do {
-                    try user.fetchIfNeeded()
-                    print(user.username)
-                    cell.userLabel.text = user.username
-                } catch {
-                    
-                }
-                //user.fetchIfNeededInBackground()
-//                user.fetchIfNeededInBackground(block: {
-//                (pfobject, error) -> Void in
-//                    if let user = pfobject?["user"] as? PFUser {
-//                        cell.userLabel.text = user.username
-//                    }
-//                    
-//                })
+                cell.userLabel.text = user.username
             } else {
                 cell.userLabel.isHidden = true
             }
