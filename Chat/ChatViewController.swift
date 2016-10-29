@@ -32,7 +32,7 @@ class ChatViewController: UIViewController {
     @IBAction func onSend(_ sender: UIButton) {
         if let text = messageField.text {
             let message = PFObject(className: "Message")
-            message["text"] = text
+            message["satoru"] = text
             message.saveInBackground(block: {
             (success, error) -> Void in
                 if let error = error {
@@ -53,11 +53,13 @@ class ChatViewController: UIViewController {
     
     func updateTexts() {
         let query = PFQuery(className: "Message")
-        query.whereKeyExists("text")
+        query.whereKeyExists("satoru")
+        query.order(byDescending: "createdAt")
         query.findObjectsInBackground(block: {
         (objects, error) -> Void in
-            print(objects?[0]["text"])
-            print(objects?[1]["text"])
+            print(objects?[0]["satoru"])
+            print(objects?[1]["satoru"])
+            self.texts = objects
         })
     }
 }
@@ -74,7 +76,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
         if let texts = texts {
-            cell.messageLabel.text = texts[indexPath.row]["text"] as? String
+            cell.messageLabel.text = texts[indexPath.row]["satoru"] as? String
         }
         return cell
     }
