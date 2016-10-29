@@ -151,6 +151,9 @@
                                             <constraint firstAttribute="width" constant="30" id="tCH-Vp-pZ1"/>
                                         </constraints>
                                         <state key="normal" title="+"/>
+                                        <connections>
+                                            <action selector="onAddImageButton:" destination="fen-bZ-CRz" eventType="touchUpInside" id="DVY-ug-s8A"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -158,7 +161,7 @@
                                     <constraint firstItem="Tda-If-JKn" firstAttribute="centerY" secondItem="2LW-mh-1Lk" secondAttribute="centerY" id="8nz-wa-XEy"/>
                                     <constraint firstItem="z3k-cJ-FMZ" firstAttribute="leading" secondItem="2LW-mh-1Lk" secondAttribute="leading" constant="8" id="KkU-cD-Xrg"/>
                                     <constraint firstItem="jBF-JX-WpW" firstAttribute="centerY" secondItem="2LW-mh-1Lk" secondAttribute="centerY" id="MfA-IG-yn6"/>
-                                    <constraint firstItem="jBF-JX-WpW" firstAttribute="leading" secondItem="z3k-cJ-FMZ" secondAttribute="trailing" constant="8" id="RCK-Kf-Dz2"/>
+                                    <constraint firstItem="jBF-JX-WpW" firstAttribute="leading" relation="lessThanOrEqual" secondItem="z3k-cJ-FMZ" secondAttribute="trailing" constant="8" id="RCK-Kf-Dz2"/>
                                     <constraint firstItem="z3k-cJ-FMZ" firstAttribute="centerY" secondItem="2LW-mh-1Lk" secondAttribute="centerY" id="TEK-ix-XQp"/>
                                     <constraint firstAttribute="height" constant="46" id="UVU-eO-1cG"/>
                                     <constraint firstItem="Tda-If-JKn" firstAttribute="leading" secondItem="jBF-JX-WpW" secondAttribute="trailing" constant="8" id="XQy-wz-1VT"/>

@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ChatViewController: UIViewController {
 
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -72,8 +72,15 @@ class ChatViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             self.texts = objects
         })
     }
+    
+    @IBAction func onAddImageButton(_ sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        let textVC = UIViewController()
+        present(textVC, animated: true, completion: nil)
+    }
+    
 }
-
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,4 +104,9 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+}
+
+extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
 }
