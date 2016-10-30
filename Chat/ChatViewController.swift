@@ -75,11 +75,9 @@ class ChatViewController: UIViewController {
     
     @IBAction func onAddImageButton(_ sender: UIButton) {
         imagePicker.allowsEditing = false
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        let textVC = UIViewController()
-        present(textVC, animated: true, completion: nil)
+        imagePicker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum
+        present(imagePicker, animated: true, completion: nil)
     }
-    
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
@@ -107,6 +105,5 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     
 }

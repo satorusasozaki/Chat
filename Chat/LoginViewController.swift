@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
             })
         }
     }
-// name@gmail.com
+    
     @IBAction func onSignupButton(_ sender: UIButton) {
         if let email = emailField.text, let password = passwordField.text {
             // var user = PFUser()
