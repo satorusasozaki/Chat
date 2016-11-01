@@ -6,6 +6,9 @@
 //  Copyright © 2016 Satoru Sasozaki. All rights reserved.
 //
 
+// dummy@mail.com
+// 123
+
 import UIKit
 import Parse
 
@@ -40,8 +43,10 @@ class ChatViewController: UIViewController {
     @IBAction func onSend(_ sender: UIButton) {
         if let text = messageField.text {
             let message = PFObject(className: "Message")
-            message["satoru"] = text
-            message["user"] = PFUser.current()
+            message["sasozaki"] = text
+            if let user = PFUser.current() {
+                message["user"] = user
+            }
             message.saveInBackground(block: {
             (success, error) -> Void in
                 if let error = error {
@@ -62,13 +67,11 @@ class ChatViewController: UIViewController {
     
     func updateTexts() {
         let query = PFQuery(className: "Message")
-        query.whereKeyExists("satoru")
+        query.whereKeyExists("sasozaki")
         query.order(byDescending: "createdAt")
         query.includeKey("user")
         query.findObjectsInBackground(block: {
         (objects, error) -> Void in
-            print(objects?[0]["satoru"])
-            print(objects?[1]["satoru"])
             self.texts = objects
         })
     }
@@ -91,7 +94,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell") as! TextCell
         if let texts = texts {
-            cell.messageLabel.text = texts[indexPath.row]["satoru"] as? String
+            cell.messageLabel.text = texts[indexPath.row]["sasozaki"] as? String
 
             if let user = texts[indexPath.row]["user"] as? PFUser {
                 cell.userLabel.isHidden = false

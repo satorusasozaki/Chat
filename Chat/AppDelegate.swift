@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let isLoggedin = true
+        let isLoggedin = false
         if isLoggedin {
             let chatNVC = storyboard.instantiateViewController(withIdentifier: "ChatNavigationController") as! UINavigationController
             window?.rootViewController = chatNVC
